@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #2b2d42;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shine-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 350px;
+    max-height: 350px;
+}
+
+.shine-container:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: linear-gradient(to right, transparent 0%, #fff6 100%);
+    animation: shine-animation 2s linear forwards;
+}
+
+@keyframes shine-animation {
+    0% {
+      transform: rotate(45deg) translateX(-150%);
+    }
+    100% {
+      transform: rotate(45deg) translateX(150%);
+    }
+}
+
+.shine-container img {
+    max-width: 100%;
+    max-height: 100%;
+    transition: all 0.5s ease-in-out;
+}
+
+.shine-container:hover img {
+    scale: 1.1;
+}
